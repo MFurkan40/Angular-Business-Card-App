@@ -4,7 +4,13 @@
       <h1 class="page-title">Business Cards</h1>
       <p class="page-description">Manage Your Business Cards.</p>
     </div>
-    <button mat-flat-button color="primary" (click)="openAddCardModal()">
+    <app-card-search></app-card-search>
+    <button
+      mat-flat-button
+      color="primary"
+      (click)="openAddCardModal()"
+      style="margin-left: 16px"
+    >
       New Business Card
     </button>
   </div>
@@ -30,8 +36,14 @@
         >
       </div>
       <div
+        class="col-12 text-center"
+        *ngIf="cardService.filteredCards?.length === 0"
+      >
+        <div class="w-100 text-center fs-6 text-muted mt-3">No data found.</div>
+      </div>
+      <div
         class="col-12 col-md-4 col-lg-3"
-        *ngFor="let card of cardService.cards"
+        *ngFor="let card of cardService.filteredCards"
       >
         <app-card-item [card]="card"></app-card-item>
       </div>

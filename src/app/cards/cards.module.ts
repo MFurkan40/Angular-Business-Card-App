@@ -14,9 +14,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CardsComponent } from './cards.component';
 import { CardItemComponent } from './card-item/card-item.component';
 import { CardModalComponent } from './card-modal/card-modal.component';
+import { CardSearchComponent } from './card-search/card-search.component';
 
 @NgModule({
-  declarations: [CardsComponent, CardItemComponent, CardModalComponent],
+  declarations: [CardsComponent, CardItemComponent, CardModalComponent, CardSearchComponent],
   imports: [
     CommonModule,
     CardsRoutingModule,
