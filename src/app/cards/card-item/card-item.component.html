@@ -1,0 +1,35 @@
+<mat-card class="card-item">
+  <mat-card-header (click)="openUpdateCardModal(card)">
+    <mat-card-title>{{ card.title }}</mat-card-title>
+    <mat-card-subtitle>
+      <span *ngIf="card.name">
+        {{ card.name }}
+      </span>
+      <small *ngIf="!card.name"> No Name </small>
+    </mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">{{ card.phone }}</li>
+      <li class="list-group-item">
+        <span *ngIf="card.email">
+          {{ card.email }}
+        </span>
+        <small class="text-warning" *ngIf="!card.email">
+          No e-mail address entered.
+        </small>
+      </li>
+      <li class="list-group-item">
+        <span *ngIf="card.address">
+          {{ card.address }}
+        </span>
+        <small class="text-warning" *ngIf="!card.address">
+          No address entered.
+        </small>
+      </li>
+      <!-- <ng-template #noAddress>
+        <small class="text-warning no-content">No address entered.</small>
+      </ng-template> -->
+    </ul>
+  </mat-card-content>
+</mat-card>

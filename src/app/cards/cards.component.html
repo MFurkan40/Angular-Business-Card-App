@@ -1,0 +1,40 @@
+<main class="main-height">
+  <div class="d-flex align-items-center">
+    <div class="flex-grow-1">
+      <h1 class="page-title">Business Cards</h1>
+      <p class="page-description">Manage Your Business Cards.</p>
+    </div>
+    <button mat-flat-button color="primary" (click)="openAddCardModal()">
+      New Business Card
+    </button>
+  </div>
+  <hr />
+  <div class="cards h-100">
+    <div class="row h-100">
+      <div
+        class="col-12 h-75 d-flex flex-column justify-content-center align-items-center"
+        *ngIf="!cardService.cards"
+      >
+        <mat-spinner strokeWidth="7"></mat-spinner>
+        <p class="w-100 ms-3 pt-3 text-center loading-style">
+          Cards Loading ...
+        </p>
+      </div>
+      <div class="col-12" *ngIf="cardService.cards?.length === 0">
+        <span
+          >If you haven't added a business card yet, you can add your first
+          business card by
+          <a class="text-primary fst-italic" (click)="openAddCardModal()"
+            >clicking here.</a
+          ></span
+        >
+      </div>
+      <div
+        class="col-12 col-md-4 col-lg-3"
+        *ngFor="let card of cardService.cards"
+      >
+        <app-card-item [card]="card"></app-card-item>
+      </div>
+    </div>
+  </div>
+</main>
